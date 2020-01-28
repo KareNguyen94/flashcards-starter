@@ -35,8 +35,19 @@ describe('Round', function() {
     expect(round.returnCurrentCard()).to.deep.equal(card1);
     });
 
-    it('should be able to increase the number of turns', function() {
-      round.takeTurn('pug');
-      expect(round.turnCount).to.equal(1);
+  it('should be able to increase the number of turns', function() {
+    round.takeTurn('pug');
+    expect(round.turnCount).to.equal(1);
+    });
+
+  describe('validate get feedback', function() {
+
+    it('should say if guess is correct', function() {
+      expect(round.takeTurn('sea otter')).to.equal('Correct!');
       });
+  
+    it('should say if guess is incorrect', function() {
+      expect(round.takeTurn('spleen')).to.equal('Incorrect!');
+      });
+  });
 });
