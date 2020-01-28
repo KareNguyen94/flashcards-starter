@@ -25,8 +25,16 @@ class Round {
   }
 
   calculatePercentCorrect() {
-   let score = ((this.turnCount - this.incorrectGuesses.length) / this.turnCount * 100);
+   const score = ((this.turnCount - this.incorrectGuesses.length) / this.turnCount * 100);
    return Math.round(score);
+  }
+
+  endRound() {
+    if(this.deck.length === 0) {
+      console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!!`);
+      
+      return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!!`;
+    }
   }
 }
 

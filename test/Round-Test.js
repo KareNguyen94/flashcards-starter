@@ -70,4 +70,11 @@ describe('Round', function() {
     expect(round.calculatePercentCorrect()).to.equal(67);
     });
   
+  it('should be able to give a message when round is over', function() {
+    round.takeTurn('sea otther');
+    round.takeTurn('gallbladder');
+    round.takeTurn('Lex');
+
+    expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!!');
+    });
 });
