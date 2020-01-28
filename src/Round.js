@@ -23,6 +23,11 @@ class Round {
     }
     return turn.giveFeedback();
   }
+
+  calculatePercentCorrect() {
+   let score = ((this.turnCount - this.incorrectGuesses.length) / this.turnCount * 100);
+   return Math.round(score);
+  }
 }
 
   module.exports = Round;

@@ -39,15 +39,35 @@ describe('Round', function() {
     round.takeTurn('pug');
     expect(round.turnCount).to.equal(1);
     });
-
+    
   describe('validate get feedback', function() {
-
+    
     it('should say if guess is correct', function() {
-      expect(round.takeTurn('sea otter')).to.equal('Correct!');
-      });
-  
+      round.takeTurn();
+      expect(round.takeTurn('gallbladder')).to.equal('Correct!');
+    });
+    
     it('should say if guess is incorrect', function() {
-      expect(round.takeTurn('spleen')).to.equal('Incorrect!');
-      });
+      round.takeTurn();
+      expect(round.takeTurn('Lex')).to.equal('Incorrect!');
+    });
   });
+  it('should store the incorrect guesses', function() {
+    round.takeTurn();
+    round.takeTurn();
+    expect(round.incorrectGuesses.length).to.deep.equal(2)
+  });
+
+  it('should remove a card after a turn', function() {
+    round.takeTurn('pug');
+    expect(round.returnCurrentCard()).to.equal(card2);
+    });
+
+  it('should calculate all of the correct answers', function() {
+    round.takeTurn('sea otter');
+    round.takeTurn('appendix');
+    round.takeTurn('Fitzgerald');
+    expect(round.calculatePercentCorrect()).to.equal(67);
+    });
+  
 });
