@@ -18,3 +18,4 @@ In the terminal, run:
 node index.js
 
 When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
+![game](https://media.giphy.com/media/Jo8F70SThTgJuyDwEV/giphy.gif)
