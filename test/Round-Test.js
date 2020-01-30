@@ -1,8 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 const Deck = require('../src/Deck');
-const Round = require('../src/Round');
 const Card = require('../src/Card');
+const Round = require('../src/Round');
 
 describe('Round', function() {
 
@@ -52,6 +52,7 @@ describe('Round', function() {
       expect(round.takeTurn('Lex')).to.equal('Incorrect!');
     });
   });
+  
   it('should store the incorrect guesses', function() {
     round.takeTurn();
     round.takeTurn();
