@@ -5,6 +5,7 @@ class Round {
     this.deck = deck.cards
     this.turnCount = 0;
     this.incorrectGuesses = [];
+    this.setTimer = Date.now();
   }
 
   returnCurrentCard() {
@@ -31,10 +32,18 @@ class Round {
 
   endRound() {
     if (this.deck.length === 0) {
-      console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!!`);
+      console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!! ${this.timer()}`);
       
-      return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!!`;
+      return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!! ${this.timer()}` 
     }
+  }
+
+  timer() {
+    let endTime = Date.now();
+    let time = (endTime - this.setTimer) / 1000;
+    let min = Math.floor(time / 60);
+    let sec = Math.round(time % 60);
+    return `You finished in ${min} mins and ${sec} secs!`;
   }
 }
 
